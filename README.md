@@ -58,7 +58,7 @@ options:
 
 + Get started with GitSpyX today and unlock the power of GitHub data analysis for your projects and research endeavors. Explore user profiles, dive into repository details, and gain valuable insights to drive your decision-making process.
 
-+ For detailed documentation, usage examples, and updates, please visit the official GitSpyX GitHub repository: [https://github.com/yourusername/GitSpyX](https://github.com/MrHacker-X/GitSpyX).
++ For detailed documentation, usage examples, and updates, please visit the official GitSpyX GitHub repository: [https://github.com/MrHacker-X/GitSpyX](https://github.com/MrHacker-X/GitSpyX).
 
 + If you encounter any issues, have suggestions for improvements, or would like to contribute to GitSpyX, please open an issue or submit a pull request on GitHub.
 
