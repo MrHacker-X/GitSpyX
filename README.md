@@ -47,7 +47,7 @@ options:
 
 ## Screenshot:
 
-![photo](https://i.ibb.co/SwxQWLn/Screenshot-2023-05-19-04-01-54-631-edit-com-termux.jpg)
+![photo](https://i.ibb.co/7KCQHr2/Screenshot-2023-05-19-04-48-31-191-edit-com-termux.jpg)
 
 ## Dependencies:
 
