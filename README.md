@@ -7,18 +7,18 @@
 ## Features:
 
 ### 1. GitHub User Profile Analysis:
-   + - Retrieve user information such as name, location, bio, and followers.
-   + - Fetch a user's public repositories and their corresponding details.
-   + - Access a user's contribution statistics, including commits, pull requests, and issues.
+    - Retrieve user information such as name, location, bio, and followers.
+    - Fetch a user's public repositories and their corresponding details.
+    - Access a user's contribution statistics, including commits, pull requests, and issues.
 
 ### 2. Repository Analysis:
-   + - Obtain repository information, such as the number of stars, forks, and watchers.
-   + - Fetch details about the repository's contributors, including their commit count and additions/deletions.
-   + - Access a repository's pull requests, issues, and their associated data.
+    - Obtain repository information, such as the number of stars, forks, and watchers.
+    - Fetch details about the repository's contributors, including their commit count and additions/deletions.
+    - Access a repository's pull requests, issues, and their associated data.
 
 ### 3. Data Exploration and Visualization:
-   + - Utilize the retrieved data to perform in-depth analysis and generate insightful visualizations.
-   + - Gain valuable insights into user and repository trends, contribution patterns, and more.
+    - Utilize the retrieved data to perform in-depth analysis and generate insightful visualizations.
+    - Gain valuable insights into user and repository trends, contribution patterns, and more.
 
 + GitSpyX simplifies the process of extracting GitHub data, allowing you to focus on your analysis and derive meaningful conclusions. Whether you're studying open-source projects, evaluating contributors, or monitoring repository activity, this tool provides the necessary functionality to expedite your research and analysis workflows.
 
@@ -52,7 +52,7 @@ options:
 ## Dependencies:
 
 + GitSpyX relies on the following dependencies:
-+ - requests
+ - requests
 
 #### These dependencies will be automatically installed when you install GitSpyX.
 
