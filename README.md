@@ -31,7 +31,7 @@
 ## Usages:
 
 ```
-usage: gitspyx.py [-h] [-u USERNAME] [-v] [-d] [-o OUTPUT]
+usage: gitspyx.py [-h] [-u USERNAME] [-r] [-v] [-d]
 
 GitHub User Profile Details
 
@@ -39,10 +39,10 @@ options:
   -h, --help            show this help message and exit
   -u USERNAME, --username USERNAME
                         GitHub username
+  -r, --repos           Get repository detail In deep
   -v, --version         Show script version
   -d, --developer       Show developer name
-  -o OUTPUT, --output OUTPUT
-                        Output file name
+
 ```
 
 ## Screenshot:
