@@ -1,5 +1,7 @@
 ## GitSpyX
 
+![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=MrHacker-X.GitSpyX)
+
 + GitSpyX is a powerful Python package designed for Git repository analysis. It provides a convenient and efficient way to retrieve detailed information about GitHub user profiles and repositories.
 
 + With GitSpyX, you can effortlessly gather valuable insights about GitHub users, their contributions, and repository statistics. Whether you're a developer, data scientist, or analyst, this tool equips you with the necessary functionality to explore and extract relevant data from GitHub repositories.
