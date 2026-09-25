@@ -22,7 +22,7 @@ console = Console()
 
 GITHUB_HEADERS = {
     "Accept": "application/vnd.github+json",
-    "User-Agent": "GitSpyX/2.3 (OSINT; VritraSecz)",
+    "User-Agent": "GitSpyX/2.3 (OSINT; MrHacker-X)",
 }
 
 
@@ -57,7 +57,7 @@ def print_banner():
      ╚═════╝ ╚═╝   ╚═╝   ╚══════╝╚═╝        ╚═╝   ╚═╝  ╚═╝    """
     console.print(Text(banner, style="bold #4A90E2"))
     console.print("\nGitSpyX - Advanced GitHub Intelligence Tool", style="bold #F5A623")
-    console.print("Developed by VritraSecz | Vritra Security Organization", style="bold #BD10E0")
+    console.print("Developed by MrHacker-X | Vritra Security Organization", style="bold #BD10E0")
     console.print("-" * 70, style="bold #4A90E2")
 
 def get_github_data(url):
@@ -302,11 +302,11 @@ def show_connect():
     connect_text = """
     Connect with the developer and support the project:
 
-    GitHub:    https://github.com/VritraSecz
+    GitHub:    https://github.com/MrHacker-X
     Instagram: https://instagram.com/vritrasec
     YouTube:   https://youtube.com/@Technolex
     Website:   https://vritrasec.com
-    Community: t.me/VritraSecz
+    Community: t.me/MrHacker-X
     Channel:   t.me/LinkCentralX
     Main:      t.me/VritraSec
     """

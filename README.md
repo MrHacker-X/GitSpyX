@@ -19,12 +19,12 @@
 [![Version](https://img.shields.io/badge/version-2.3.0-brightgreen.svg)](#overview)
 [![Status](https://img.shields.io/badge/status-stable-success.svg)](#overview)
 [![Maintained](https://img.shields.io/badge/maintained-yes-green.svg)](#contributing)
-[![Stars](https://img.shields.io/github/stars/VritraSecz/GitSpyX?style=social)](https://github.com/VritraSecz/GitSpyX)
-[![Forks](https://img.shields.io/github/forks/VritraSecz/GitSpyX?style=social)](https://github.com/VritraSecz/GitSpyX)
-[![Issues](https://img.shields.io/github/issues/VritraSecz/GitSpyX)](https://github.com/VritraSecz/GitSpyX/issues)
-[![Contributors](https://img.shields.io/github/contributors/VritraSecz/GitSpyX)](https://github.com/VritraSecz/GitSpyX/graphs/contributors)
-[![Languages](https://img.shields.io/github/languages/count/VritraSecz/GitSpyX)](https://github.com/VritraSecz/GitSpyX)
-[![Code Size](https://img.shields.io/github/languages/code-size/VritraSecz/GitSpyX)](https://github.com/VritraSecz/GitSpyX)
+[![Stars](https://img.shields.io/github/stars/MrHacker-X/GitSpyX?style=social)](https://github.com/MrHacker-X/GitSpyX)
+[![Forks](https://img.shields.io/github/forks/MrHacker-X/GitSpyX?style=social)](https://github.com/MrHacker-X/GitSpyX)
+[![Issues](https://img.shields.io/github/issues/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX/issues)
+[![Contributors](https://img.shields.io/github/contributors/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX/graphs/contributors)
+[![Languages](https://img.shields.io/github/languages/count/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX)
+[![Code Size](https://img.shields.io/github/languages/code-size/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX)
 
 </div>
 
@@ -100,7 +100,7 @@ pip install gitspyx
 ### Method 2: Git Clone
 ```bash
 # Clone the repository
-git clone https://github.com/VritraSecz/GitSpyX.git
+git clone https://github.com/MrHacker-X/GitSpyX.git
 
 # Navigate to project directory
 cd GitSpyX
@@ -249,7 +249,7 @@ SOFTWARE.
 ### Alex Butler
 **Vritra Security Organization**
 
-[![GitHub](https://img.shields.io/badge/GitHub-VritraSecz-181717?style=for-the-badge&logo=github)](https://github.com/VritraSecz)
+[![GitHub](https://img.shields.io/badge/GitHub-MrHacker-X-181717?style=for-the-badge&logo=github)](https://github.com/MrHacker-X)
 [![Website](https://img.shields.io/badge/Website-vritrasec.com-FF6B6B?style=for-the-badge&logo=firefox)](https://vritrasec.com)
 [![Instagram](https://img.shields.io/badge/Instagram-haxorlex-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/haxorlex)
 [![YouTube](https://img.shields.io/badge/YouTube-Technolex-FF0000?style=for-the-badge&logo=youtube)](https://youtube.com/@Technolex)
@@ -257,7 +257,7 @@ SOFTWARE.
 ### 📱 Telegram Channels
 [![Central](https://img.shields.io/badge/Central-LinkCentralX-0088CC?style=for-the-badge&logo=telegram)](https://t.me/LinkCentralX)
 [![Main Channel](https://img.shields.io/badge/Main-VritraSec-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSec)
-[![Community](https://img.shields.io/badge/Community-VritraSecz-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSecz)
+[![Community](https://img.shields.io/badge/Community-MrHacker-X-0088CC?style=for-the-badge&logo=telegram)](https://t.me/MrHacker-X)
 [![Support Bot](https://img.shields.io/badge/Support-ethicxbot-0088CC?style=for-the-badge&logo=telegram)](https://t.me/ethicxbot)
 
 </div>
