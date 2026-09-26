@@ -1,30 +1,25 @@
 # GitSpyX - Advanced GitHub Intelligence Tool
 
-```
-     ██████╗ ██╗████████╗███████╗██████╗ ██╗   ██╗██╗  ██╗
-    ██╔════╝ ██║╚══██╔══╝██╔════╝██╔══██╗╚██╗ ██╔╝╚██╗██╔╝
-    ██║  ███╗██║   ██║   ███████╗██████╔╝ ╚████╔╝  ╚███╔╝ 
-    ██║   ██║██║   ██║   ╚════██║██╔═══╝   ╚██╔╝   ██╔██╗ 
-    ╚██████╔╝██║   ██║   ███████║██║        ██║   ██╔╝ ██╗
-     ╚═════╝ ╚═╝   ╚═╝   ╚══════╝╚═╝        ╚═╝   ╚═╝  ╚═╝
-```
-
 <div align="center">
 
-**An advanced, open-source intelligence (OSINT) tool designed for GitHub reconnaissance.**
+```
+ ██████╗ ██╗████████╗███████╗██████╗ ██╗   ██╗██╗  ██╗
+██╔════╝ ██║╚══██╔══╝██╔════╝██╔══██╗╚██╗ ██╔╝╚██╗██╔╝
+██║  ███╗██║   ██║   ███████╗██████╔╝ ╚████╔╝  ╚███╔╝
+██║   ██║██║   ██║   ╚════██║██╔═══╝   ╚██╔╝   ██╔██╗
+╚██████╔╝██║   ██║   ███████║██║        ██║   ██╔╝ ██╗
+ ╚═════╝ ╚═╝   ╚═╝   ╚══════╝╚═╝        ╚═╝   ╚═╝  ╚═╝
+```
 
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)](#requirements)
-[![Version](https://img.shields.io/badge/version-2.3.0-brightgreen.svg)](#overview)
-[![Status](https://img.shields.io/badge/status-stable-success.svg)](#overview)
-[![Maintained](https://img.shields.io/badge/maintained-yes-green.svg)](#contributing)
-[![Stars](https://img.shields.io/github/stars/MrHacker-X/GitSpyX?style=social)](https://github.com/MrHacker-X/GitSpyX)
-[![Forks](https://img.shields.io/github/forks/MrHacker-X/GitSpyX?style=social)](https://github.com/MrHacker-X/GitSpyX)
-[![Issues](https://img.shields.io/github/issues/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX/issues)
-[![Contributors](https://img.shields.io/github/contributors/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX/graphs/contributors)
-[![Languages](https://img.shields.io/github/languages/count/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX)
-[![Code Size](https://img.shields.io/github/languages/code-size/MrHacker-X/GitSpyX)](https://github.com/MrHacker-X/GitSpyX)
+**Advanced open-source intelligence (OSINT) for GitHub reconnaissance.**
+
+[![PyPI version](https://img.shields.io/pypi/v/gitspyx?style=for-the-badge&color=brightgreen)](https://pypi.org/project/gitspyx/)
+[![Python](https://img.shields.io/pypi/pyversions/gitspyx?style=for-the-badge&color=blue)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/pypi/l/gitspyx?style=for-the-badge&color=green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/MrHacker-X/GitSpyX?style=for-the-badge&logo=github)](https://github.com/MrHacker-X/GitSpyX)
+[![Issues](https://img.shields.io/github/issues/MrHacker-X/GitSpyX?style=for-the-badge&color=orange)](https://github.com/MrHacker-X/GitSpyX/issues)
+
+[![Install](https://img.shields.io/badge/pip%20install-gitspyx-0088CC?style=for-the-badge&logo=pypi)](https://pypi.org/project/gitspyx/)
 
 </div>
 
@@ -32,215 +27,251 @@
 
 ## 📋 Table of Contents
 
+- [What's New in v3](#-whats-new-in-v3)
 - [Overview](#-overview)
-- [Features](#-features)
-- [Requirements](#-requirements)
 - [Installation](#-installation)
 - [Usage](#-usage)
-- [Screenshots](#️-screenshots)
+- [Intelligence Modes](#-intelligence-modes)
+- [Exports](#-exports)
+- [API Tokens & Rate Limits](#-api-tokens--rate-limits)
+- [Caching](#-caching)
+- [Exit Codes](#-exit-codes)
+- [Development & Testing](#-development--testing)
 - [Project Structure](#-project-structure)
-- [Contributing](#-contributing)
-- [Developer](#-developer)
 - [License](#-license)
+- [Developer](#-developer)
 
+## 🆕 What's New in v3
+
+GitSpyX 3.x is a ground-up rewrite of the classic single-script tool:
+
+| | v2.3 | v3.1 |
+|---|---|---|
+| **Architecture** | One 400-line script | Installable `gitspyx` package, importable API |
+| **API client** | Bare `requests.get`, no retries | Sessions, exponential-backoff retries, timeout control |
+| **Rate limit behaviour** | Crash with raw HTTP error | Distinct errors, local-time reset hints, `--rate-limit` meter |
+| **Auth** | Not supported | `--token` > `GITHUB_TOKEN` > `GH_TOKEN` (5,000 req/hour) |
+| **Caching** | None | Persistent ETag conditional requests - repeat runs cost **0 credits** |
+| **Intelligence** | Raw field dumps | Star/fork/language aggregates, top-repo rankings, contributor insight, commit timelines, recent activity summaries |
+| **Output** | JSON only | JSON · Markdown · CSV · self-contained dark-mode HTML |
+| **Terminal UI** | Plain tables | Gradient banner, highlighted section headings, language share bars |
+| **Errors & exit codes** | Always 0 | Distinct codes per failure class (CI-friendly) |
+| **Safety** | Unsanitised filenames | Path-safe slugs, CSV formula-injection protection, HTML XSS escaping |
+| **Testing** | None | 160+ offline pytest tests, CI matrix (3.9–3.13), live E2E runner |
 
 ## 🔮 Overview
 
-**GitSpyX** is an advanced, open-source intelligence (OSINT) tool designed for GitHub reconnaissance. It allows security researchers, developers, and enthusiasts to gather detailed information about GitHub users, organizations, and repositories. From user profiles and repository details to organization memberships and contribution patterns, GitSpyX provides a comprehensive intelligence overview in a clean, user-friendly format. Whether you're conducting security assessments or just curious about GitHub projects, GitSpyX is your go-to spyglass.
-
-### Key Highlights
-
-- 🕵️ **Comprehensive intelligence**: Users, public repos, single-repo details, user search, and organizations.
-- 💻 **CLI + Rich**: Colored tables, optional progress mode, and readable UTC timestamps in the terminal.
-- 💾 **JSON export**: Raw GitHub API-shaped data under `output-gitspyx/` for pipelines and reports.
-- 🐍 **Stack**: Python 3, `requests`, and `rich`.
-
-## ✨ Features
-
-### Core Functionality
-- **User profile**: Public fields from `GET /users/{username}` (including **Profile updated** = account metadata `updated_at`).
-- **User repositories**: Paginated public repos (`GET /users/{username}/repos`) with name, language, stars, forks, and URL.
-- **Repository investigation**: Full repo object via `GET /repos/{owner}/{repo}` — license, topics, forks, issues, homepage, etc.
-- **Search users**: `GET /search/users` with your query string.
-- **Organization**: Public org details from `GET /orgs/{org}`.
-- **JSON export**: Successful runs write timestamped files under `output-gitspyx/` (raw API JSON for scripting; see below).
-
-### Accurate GitHub metrics (v2.3+)
-- **Watchers** in repo details uses **`subscribers_count`** (people watching for notifications). GitHub’s REST **`watchers_count`** on repositories often matches **stars**, not true watchers.
-- **Last push** shows **`pushed_at`** (last git push). **Repo activity (issues/stars, etc.)** shows **`updated_at`**, which changes on many non-push events.
-- **Homepage** is shown as the plain URL from the API when set; empty values show as `N/A`.
-
-### User experience
-- **Human-readable dates** in tables (e.g. `28 July 2025 at 00:45:21 UTC`); saved JSON still uses GitHub’s ISO-8601 strings.
-- **HTTP client**: `Accept: application/vnd.github+json`, a proper `User-Agent`, and a **30s** timeout on each request.
-- **Rich tables & colors**: Terminal output via [Rich](https://github.com/Textualize/rich).
-- **Progress bars**: When using `--no-display` with a username, bulk fetch shows progress.
-
-## 📋 Requirements
-
-### System Requirements
-- **Python**: 3.7 or higher (3.9+ recommended)
-- **Operating System**: Linux, macOS, or Windows (any OS with Python 3)
-- **Internet Connection**: Required for GitHub API access
-
-### Python Dependencies
-```bash
-rich
-requests
-```
+GitSpyX gathers detailed intelligence about GitHub users, organizations and
+repositories: profiles with aggregate statistics, repository dossiers with
+language breakdowns and contributor insight, commit timelines, user search and
+org metadata - rendered as Rich dashboards in the terminal and exported in the
+format your workflow needs.
 
 ## 🚀 Installation
 
-### Method 1: PyPI (Recommended)
+### From PyPI (recommended)
+
 ```bash
-# Install from PyPI
 pip install gitspyx
+gitspyx --help
 ```
 
-### Method 2: Git Clone
+### From source (this checkout)
+
 ```bash
-# Clone the repository
 git clone https://github.com/MrHacker-X/GitSpyX.git
-
-# Navigate to project directory
 cd GitSpyX
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python3 gitspyx.py --help
+pip install .
+gitspyx --help
 ```
+
+### Classic invocation (no install)
+
+```bash
+pip install -r requirements.txt
+python3 gitspyx.py -u <username>     # legacy shim, still works
+python3 -m gitspyx -u <username>     # canonical form
+```
+
+> Upgrading from an old PyPI release? Uninstall first to avoid a stale
+> shadow copy: `pip uninstall gitspyx && pip install gitspyx`
 
 ## 🎯 Usage
 
-Run the script as `python3 gitspyx.py …` from the project folder, or use the `gitspyx` entry point if you installed from PyPI.
-
-### User investigation
-```bash
-# Profile only
-python3 gitspyx.py -u <username>
-
-# Profile + all public repositories (paginated)
-python3 gitspyx.py -u <username> -r
-
-# Deep-dive one repo (must use -u)
-python3 gitspyx.py -u <username> -i <repo_name>
+```
+gitspyx -u <username>                    profile + aggregate statistics
+gitspyx -u <username> -r                 + full repository table
+gitspyx -u <username> --deep             deep scan: contributor insight on top repos
+gitspyx -u <username> --deep --deep-limit 5
+gitspyx -i owner/repo                    full repository dossier
+gitspyx -i owner/repo --activity         + commit stream & event timeline
+gitspyx -s "search query"                user search (quote multi-word queries)
+gitspyx -o <org>                         organization metadata
+gitspyx -u <username> -f json md html    choose export formats
+gitspyx -u <username> --max-items 200    cap repository pagination
+gitspyx --rate-limit                     inspect your remaining API budget
+gitspyx --clear-cache                    purge the local ETag cache
+gitspyx --no-display -u <user>           fully silent automation mode
 ```
 
-### Search & organizations
-```bash
-# Search GitHub users (keep special characters in mind for complex queries)
-python3 gitspyx.py -s "search_query"
+**Legacy syntax** from classic GitSpyX still works:
 
-# Public organization metadata
-python3 gitspyx.py -o <organization_name>
+```
+gitspyx -u OWNER -i REPO                 translated to: gitspyx -i OWNER/REPO
+python3 gitspyx.py -u OWNER -i REPO      same via the shim file
 ```
 
-### JSON output
-Whenever the tool collects data, it also writes **`output-gitspyx/<slug>-<DDMMYY-HHMMSS>.json`** (UTC-based timestamp in the filename). The JSON mirrors the GitHub API payloads (unmodified field names and ISO dates).
+### Flag semantics
 
-### Quiet / batch mode
-`--no-display` **only** works as:
+- **`-r / --repos`** controls *terminal rendering only*: the full repository
+  table prints only with `-r`. Aggregate statistics are always computed from
+  the repository data (one paginated fetch), so plain `-u` still shows totals
+  without dumping every repo.
+- **`--deep`** renders a per-repository contributor panel in the terminal *and*
+  includes the data in every export. `--deep-limit N` (default 3, max 20)
+  bounds the number of extra contributor requests.
+- **`--no-display`** is fully silent - no banner, no tables, no summary, no
+  save messages. Export files are still written; errors go to stderr with a
+  non-zero exit code. Ideal for cron/CI: `gitspyx -u X --no-display -f json`.
+- **`--max-pages` / `--max-items`** cap pagination on large accounts. Truncation
+  is reported in the output and exports (`repositories_truncated: true`).
+
+## 🕵️ Intelligence Modes
+
+- **User mode (`-u`)** - profile fields plus computed aggregates: total
+  stars/forks/watchers/issues, language distribution with bars, top starred &
+  forked repositories, fork share, averages.
+- **Repo mode (`-i owner/repo`)** - full dossier: metrics, license, topics,
+  homepage, per-language byte breakdown, top contributors and branch list.
+- **Activity mode (`-i owner/repo --activity`)** - recent commit stream with
+  authors, top-committer share bars, and public event timeline summary.
+- **Search mode (`-s`)** - URL-encoded user search with total-match count.
+- **Org mode (`-o`)** - public organization metadata.
+
+## 📤 Exports
+
+Successful runs write timestamped, path-safe files under `output-gitspyx/`:
+
+| Format | Flag | Contents |
+|---|---|---|
+| JSON | `-f json` | Complete raw report, API-faithful |
+| Markdown | `-f md` | GitHub-flavoured tables, ready to paste into issues/PRs |
+| CSV | `-f csv` | Repo or search-result rows for spreadsheets, formula-injection safe |
+| HTML | `-f html` | Self-contained dark-mode dashboard - zero external assets |
 
 ```bash
-python3 gitspyx.py -u <username> --no-display
+gitspyx -u torvalds -f json md html
+# Saved: output-gitspyx/gitspyx_user-torvalds_2026-09-26_101741.json
+# Saved: output-gitspyx/gitspyx_user-torvalds_2026-09-26_101741.md
+# Saved: output-gitspyx/gitspyx_user-torvalds_2026-09-26_101741.html
 ```
 
-It fetches **profile + all repositories** with a progress bar, **no Rich tables**, and saves JSON. It cannot be combined with `-r`, `-i`, `-s`, `-o`, `--about`, `--connect`, or `-v` (the script will print an error).
+## 🔑 API Tokens & Rate Limits
 
-### Other commands
+Unauthenticated GitHub API access is capped at **60 requests/hour**. Set a
+token to raise this to **5,000/hour**. Token precedence (first match wins):
+
+1. `--token` flag
+2. `GITHUB_TOKEN` environment variable
+3. `GH_TOKEN` environment variable
+4. unauthenticated
+
+Tokens are never written to cache files, exports, or error messages.
+
 ```bash
-python3 gitspyx.py --about    # Tool description
-python3 gitspyx.py --connect  # Author links
-python3 gitspyx.py -v         # Version (2.3.0)
-python3 gitspyx.py            # Banner + help
+export GITHUB_TOKEN=ghp_yourtokenhere   # recommended
+gitspyx -u torvalds                     # picked up automatically
+gitspyx --rate-limit                    # live budget from response headers
 ```
 
-### Rate limits
-Unauthenticated requests use GitHub’s **public** rate limits. For heavier use, consider a personal access token in a future release or wrap calls with your own authenticated client.
+The client tracks `X-RateLimit-Limit/Remaining/Used/Reset` from every response
+and surfaces the remaining budget in the session footer. Primary exhaustion
+(403 + `X-RateLimit-Remaining: 0`), secondary throttling (403/429 with an
+exact `Retry-After` wait), and plain 403s (private/blocked) are distinguished;
+only transient failures (network, 5xx, 429) are retried.
 
-## 🖼️ Screenshots
+## 💾 Caching
 
-### Main Menu + Output Interface
-![main-menu](https://i.ibb.co/9HKnBpZD/Screenshot-From-2025-08-06-03-46-08.png)
+v3 stores API responses under `~/.cache/gitspyx` and revalidates them with
+`ETag`/`If-None-Match`. Unchanged data is served from disk, so re-running the
+same scan costs **zero** rate-limit credits. Disable with `--no-cache`, purge
+with `--clear-cache`.
 
-## 📁 Project Structure
+## 🚦 Exit Codes
+
+| Code | Meaning |
+|---|---|
+| 0 | Success |
+| 1 | Generic failure (bad arguments, invalid identifiers) |
+| 2 | Network error (DNS, timeout, connection) |
+| 3 | Authentication error (invalid token) |
+| 4 | Not found (user/repo/org) |
+| 5 | Rate limit exhausted (primary or secondary) |
+| 6 | Other GitHub API error |
+| 7 | Export/write failure |
+| 130 | Interrupted (Ctrl+C) |
+
+## 🛠 Development & Testing
+
+```bash
+pip install -e ".[dev]"
+pytest                      # offline unit suite, no network needed
+RUN_INTEGRATION=1 pytest tests/test_integration.py   # optional live-API tests
+python -m compileall gitspyx
+```
+
+### End-to-end test runner
+
+Exercises the real CLI against the live GitHub API using stable public
+targets (`octocat`, `octocat/Hello-World`, `github/.github`). Strictly
+read-only - it performs GET requests only and writes nothing to the repo.
+
+```bash
+# Fast essentials (user scan, repo scan, CLI smoke, error handling):
+python scripts/e2e_test.py --smoke
+
+# Everything, plus JSON/CSV/HTML export inspection, cache behaviour,
+# pagination bounds and org scan:
+python scripts/e2e_test.py --full
+
+# Optional: better API limits during E2E runs
+GITHUB_TOKEN=ghp_yourtoken python scripts/e2e_test.py --full
+```
+
+The runner never hardcodes or prints tokens. Checks that hit the hourly
+rate limit are reported as `SKIP` (not failures); all other failures count
+toward a non-zero exit code. Reports and temp files are created in a
+TemporaryDirectory and cleaned up automatically.
+
+CI (`.github/workflows/ci.yml`) runs the tests on Python 3.9–3.13 plus CLI
+smoke checks on every push and PR.
+
+### Project Structure
 
 ```
 GitSpyX/
-├── gitspyx.py          # Main script
-├── requirements.txt    # Dependencies
-├── README.md           # Documentation
-└── LICENSE             # MIT License
+├── gitspyx/                 # Installable package
+│   ├── __init__.py          # Public API surface
+│   ├── __main__.py          # CLI entry point
+│   ├── banner.py            # Gradient terminal banner
+│   ├── client.py            # Resilient API client (retries, cache, tokens)
+│   ├── collectors.py        # Intelligence collectors & aggregates
+│   ├── ui.py                # Rich dashboards & section headings
+│   ├── exporters.py         # JSON / Markdown / CSV / HTML writers
+│   ├── cache.py             # Persistent ETag cache
+│   ├── exceptions.py        # Typed error hierarchy + exit codes
+│   └── utils.py             # Validation & sanitising helpers
+├── gitspyx.py               # Legacy shim (python3 gitspyx.py still works)
+├── scripts/e2e_test.py      # Live E2E runner (--smoke / --full)
+├── checks/version_check.py  # Version consistency guard
+├── tests/                   # Offline pytest suite
+├── pyproject.toml           # Packaging & entry points
+└── .github/workflows/ci.yml # CI matrix
 ```
-
-### File Descriptions
-
-
-- **`gitspyx.py`**: Main application script containing all the core functionality
-
-- **`requirements.txt`**: Lists all Python dependencies required by the project
-- **`README.md`**: Comprehensive documentation and usage guide
-- **`LICENSE`**: MIT license file
-
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Here's how you can help:
-
-### Ways to Contribute
-- 🐛 **Bug Reports**: Submit detailed issue reports.
-- 💡 **Feature Requests**: Suggest new functionality.
-- 🔧 **Code Contributions**: Submit pull requests.
-- 📚 **Documentation**: Improve documentation and examples.
-
-### Development Setup
-```bash
-# Fork the repository on GitHub
-# Clone your fork
-git clone https://github.com/yourusername/GitSpyX.git
-
-# Create a feature branch
-git checkout -b feature/your-feature-name
-
-# Make changes and test thoroughly
-# Commit with descriptive messages
-git commit -m "Add: new feature description"
-
-# Push to your fork and create pull request
-git push origin feature/your-feature-name
-```
-
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Alex Butler (Vritra Security Organization)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 
 ## 👨‍💻 Developer
 
@@ -249,35 +280,16 @@ SOFTWARE.
 ### Alex Butler
 **Vritra Security Organization**
 
-[![GitHub](https://img.shields.io/badge/GitHub-MrHacker-X-181717?style=for-the-badge&logo=github)](https://github.com/MrHacker-X)
+[![GitHub](https://img.shields.io/badge/GitHub-MrHacker--X-181717?style=for-the-badge&logo=github)](https://github.com/MrHacker-X)
 [![Website](https://img.shields.io/badge/Website-vritrasec.com-FF6B6B?style=for-the-badge&logo=firefox)](https://vritrasec.com)
-[![Instagram](https://img.shields.io/badge/Instagram-haxorlex-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/haxorlex)
+[![Instagram](https://img.shields.io/badge/Instagram-vritrasec-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/vritrasec)
 [![YouTube](https://img.shields.io/badge/YouTube-Technolex-FF0000?style=for-the-badge&logo=youtube)](https://youtube.com/@Technolex)
 
 ### 📱 Telegram Channels
+
+[![Main Channel](https://img.shields.io/badge/Main--Channel-MrHacker--X-0088CC?style=for-the-badge&logo=telegram)](https://t.me/MrHackerX)
 [![Central](https://img.shields.io/badge/Central-LinkCentralX-0088CC?style=for-the-badge&logo=telegram)](https://t.me/LinkCentralX)
-[![Main Channel](https://img.shields.io/badge/Main-VritraSec-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSec)
-[![Community](https://img.shields.io/badge/Community-MrHacker-X-0088CC?style=for-the-badge&logo=telegram)](https://t.me/MrHacker-X)
+[![VritraSec](https://img.shields.io/badge/Channel-VritraSec-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSec)
 [![Support Bot](https://img.shields.io/badge/Support-ethicxbot-0088CC?style=for-the-badge&logo=telegram)](https://t.me/ethicxbot)
 
 </div>
-
----
-
-<div align="center">
-
-### 🌟 Support the Project
-
-If you find GitSpyX helpful, please consider:
-- ⭐ Starring the repository
-- 🍴 Forking and contributing
-- 📢 Sharing with others
-- 🐛 Reporting issues
-- 💡 Suggesting new features
-
-**Made with ❤️ by the Vritra Security Organization**
-
-</div>
-
-
-

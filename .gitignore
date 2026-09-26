@@ -1,0 +1,67 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+.eggs/
+MANIFEST
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- GitSpyX runtime output ----
+output-gitspyx/
+*.gitspyx-report.*
+
+# ---- Testing / coverage ----
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# ---- Type checkers / linters ----
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# ---- Editors / IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.sublime-project
+.sublime-workspace
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Local secrets (never commit tokens) ----
+.env
+.env.*
+*.pem
+*.key
+secrets.yaml
+
+# ---- Freebuff agent workspace ----
+.freebuff/
+.kilo
+
+# ---- Notebooks ----
+.ipynb_checkpoints/

@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly integration run: Sundays 04:23 UTC (off-peak, arbitrary minute).
+    - cron: "23 4 * * 0"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install (clean environment)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Version consistency check (3.11+ uses tomllib, older uses tomli)
+        run: python checks/version_check.py
+      - name: Lint (compile + import check)
+        run: |
+          python -m compileall gitspyx -q
+          python -c "import gitspyx; print(gitspyx.__version__)"
+      - name: Unit tests (offline)
+        run: pytest -q
+      - name: CLI smoke test (no network)
+        run: |
+          gitspyx -v
+          gitspyx --about
+          gitspyx --clear-cache
+          gitspyx --help
+      - name: Integration tests (scheduled runs only, unauthenticated)
+        if: github.event_name == 'schedule'
+        env:
+          RUN_INTEGRATION: "1"
+        run: pytest tests/test_integration.py -q

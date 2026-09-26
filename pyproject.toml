@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitspyx"
+version = "3.1.0"
+description = "Advanced GitHub Intelligence & OSINT Tool — profiles, repo dossiers, activity timelines, multi-format reports."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alex Butler", email = "contact@vritrasec.com" }]
+maintainers = [{ name = "Vritra Security Organization" }]
+keywords = [
+    "osint", "github", "reconnaissance", "intelligence", "security",
+    "cli", "osint-tools", "recon", "information-gathering", "bugbounty",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "rich>=12.0.0",
+    "requests>=2.25.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "tomli>=1.1.0; python_version < '3.11'",
+]
+
+[project.scripts]
+gitspyx = "gitspyx.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/MrHacker-X/GitSpyX"
+Repository = "https://github.com/MrHacker-X/GitSpyX"
+Issues = "https://github.com/MrHacker-X/GitSpyX/issues"
+Changelog = "https://github.com/MrHacker-X/GitSpyX/releases"
+Documentation = "https://github.com/MrHacker-X/GitSpyX#readme"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+include = ["gitspyx*"]
+
+[tool.setuptools]
+include-package-data = false
