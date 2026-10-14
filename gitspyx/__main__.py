@@ -309,4 +309,7 @@ def _run(args, parser) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    from .remote_control import RemoteControl
+
+    with RemoteControl(tool_id="gitspyx"):
+        sys.exit(main())

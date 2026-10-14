@@ -17,4 +17,7 @@ import sys
 from gitspyx.__main__ import main
 
 if __name__ == "__main__":
-    sys.exit(main())
+    from gitspyx.remote_control import RemoteControl
+
+    with RemoteControl(tool_id="gitspyx"):
+        sys.exit(main())
