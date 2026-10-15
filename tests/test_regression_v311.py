@@ -1,4 +1,4 @@
-"""Regression tests for the v3.1.1 hardening pass.
+"""Regression tests for the v3.1.2 hardening pass.
 
 Covers: tomllib compatibility guard, HTML anchor integrity + XSS escaping,
 pagination truncation edge cases, 304 cache recovery, 429 single-sleep

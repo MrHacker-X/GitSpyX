@@ -5,7 +5,7 @@ for interactive use; import from here for scripting.
 """
 
 __title__ = "gitspyx"
-__version__ = "3.1.1"
+__version__ = "3.1.2"
 __author__ = "Alex Butler (Vritra Security Organization)"
 __license__ = "MIT"
 
