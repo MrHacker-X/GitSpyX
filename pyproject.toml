@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gitspyx"
-version = "3.1.2"
+version = "3.2.0"
 description = "Advanced GitHub Intelligence & OSINT Tool — profiles, repo dossiers, activity timelines, multi-format reports."
 readme = "README.md"
 requires-python = ">=3.9"

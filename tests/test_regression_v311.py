@@ -1,4 +1,4 @@
-"""Regression tests for the v3.1.2 hardening pass.
+"""Regression tests for the v3.2.0 hardening pass.
 
 Covers: tomllib compatibility guard, HTML anchor integrity + XSS escaping,
 pagination truncation edge cases, 304 cache recovery, 429 single-sleep
@@ -310,7 +310,7 @@ def test_429_exhausted_raises_secondary(monkeypatch):
     c.close()
 
 
-# --- v3.1.2 follow-up fixes -------------------------------------------------
+# --- v3.2.0 follow-up fixes -------------------------------------------------
 
 def test_429_retry_after_not_capped(monkeypatch):
     """Retry-After: 30 must sleep 30s, not the 8s backoff cap."""
